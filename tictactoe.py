@@ -1,6 +1,6 @@
 import random
 
-row1 = ['O', '-', 'X']
+row1 = ['O', '-', ' ']
 row2 = ['O', '-', 'X']
 row3 = ['O', '-', 'X']
 board = [row1, row2, row3]
@@ -77,10 +77,6 @@ def choose_first():
 
 # print(choose_first())
 
-# returns a boolean indicating whether a space on the board is freely available
-def space_check(board):
-    pass
-
 
 # checks if the board is full and returns a boolean value. True if full,False otherwise
 def full_board_check(brd):
@@ -91,11 +87,20 @@ def full_board_check(brd):
             return True
 
 
-if full_board_check(board):
-    print('Board is full')
-else:
-    print('Empty spaces are available')
+# if full_board_check(board):
+#     print('Board is full')
+# else:
+#     print('Empty spaces are available')
 
+# returns a boolean indicating whether a space on the board is freely available
+def space_check(brd,x,y):
+    if not full_board_check(brd):
+        if brd[x][y] == ' ':
+            return True
+        else:
+            return False
+
+# print(space_check(board,1,2))
 
 # asks for a player's next position and then uses the space_check function to check is it's a free position. If it
 # is, then return the position for later use.
