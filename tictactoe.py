@@ -1,6 +1,6 @@
-row1 = ['', '', '']
-row2 = ['X', '', '']
-row3 = ['X', 'X', 'X']
+row1 = ['', '', 'X']
+row2 = ['', 'X', '']
+row3 = ['X', '', '']
 board = [row1, row2, row3]
 
 
@@ -32,6 +32,10 @@ def place_marker(brd, x, y):
 # takes in a board and a mark (X or O) and then checks to see if the mark has won
 def win_check(brd, mark):
     verCheck = False
+    priD=False
+    secD=False
+    priDiagonalList=[]
+    secDiagonalList=[]
     winrow = [mark, mark, mark]
     for row in brd:
         if row == winrow:
@@ -39,21 +43,20 @@ def win_check(brd, mark):
     for i in range(len(brd)):
         for j in range(len(brd[i])):
             if i == j:
-                if brd[i][j] == mark:
-                    priD = True
-                else:
-                    priD = False
-        if i + j == 2:
-            if brd[i][j] == mark:
-                secD = True
-            elif brd[i][j] != mark:
-                secD = False
-    for r1, r2, r3 in brd:
-        for i in range(3):
-            if r1[i] == mark and r2[i] == mark and r3[i] == mark:
-                verCheck = True
-            elif not verCheck:
-                verCheck = False
+                priDiagonalList.append(brd[i][j])
+            if i+j == 2:
+                secDiagonalList.append(brd[i][j])
+    if priDiagonalList==winrow:
+        priD=True
+    if secDiagonalList==winrow:
+        secD=True
+
+    # for r1, r2, r3 in brd:
+    #     for i in range(3):
+    #         if r1[i] == mark and r2[i] == mark and r3[i] == mark:
+    #             verCheck = True
+    #         elif not verCheck:
+    #             verCheck = False
 
     if priD == True or secD == True or verCheck == True:
         return True
