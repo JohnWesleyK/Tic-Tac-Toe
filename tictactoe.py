@@ -1,6 +1,6 @@
 row1 = ['', '', 'X']
-row2 = ['', 'X', '']
-row3 = ['X', '', '']
+row2 = ['', '', 'X']
+row3 = ['', '', 'X']
 board = [row1, row2, row3]
 
 
@@ -32,31 +32,29 @@ def place_marker(brd, x, y):
 # takes in a board and a mark (X or O) and then checks to see if the mark has won
 def win_check(brd, mark):
     verCheck = False
-    priD=False
-    secD=False
-    priDiagonalList=[]
-    secDiagonalList=[]
+    priD = False
+    secD = False
+    priDiagonalList = []
+    secDiagonalList = []
+    columns = [['', '', ''], ['', '', ''], ['', '', '']]
     winrow = [mark, mark, mark]
+    for i in range(len(brd)):
+        for j in range(len(brd[i])):
+            columns[i][j] = brd[j][i]
+            if i == j:
+                priDiagonalList.append(brd[i][j])
+            if i + j == 2:
+                secDiagonalList.append(brd[i][j])
+    if priDiagonalList == winrow:
+        priD = True
+    if secDiagonalList == winrow:
+        secD = True
     for row in brd:
         if row == winrow:
             return True
-    for i in range(len(brd)):
-        for j in range(len(brd[i])):
-            if i == j:
-                priDiagonalList.append(brd[i][j])
-            if i+j == 2:
-                secDiagonalList.append(brd[i][j])
-    if priDiagonalList==winrow:
-        priD=True
-    if secDiagonalList==winrow:
-        secD=True
-
-    # for r1, r2, r3 in brd:
-    #     for i in range(3):
-    #         if r1[i] == mark and r2[i] == mark and r3[i] == mark:
-    #             verCheck = True
-    #         elif not verCheck:
-    #             verCheck = False
+    for col in columns:
+        if col == winrow:
+            return True
 
     if priD == True or secD == True or verCheck == True:
         return True
@@ -68,6 +66,7 @@ if win_check(board, 'X'):
     print('Win')
 else:
     print('Lose')
+
 
 # randomly decides which player goes first
 def choose_first():
