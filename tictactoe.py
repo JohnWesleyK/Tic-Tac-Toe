@@ -1,6 +1,8 @@
-row1 = ['', '', 'X']
-row2 = ['', '', 'X']
-row3 = ['', '', 'X']
+import random
+
+row1 = ['O', '-', 'X']
+row2 = ['O', '-', 'X']
+row3 = ['O', '-', 'X']
 board = [row1, row2, row3]
 
 
@@ -62,16 +64,18 @@ def win_check(brd, mark):
         return False
 
 
-if win_check(board, 'X'):
-    print('Win')
-else:
-    print('Lose')
+# if win_check(board, 'X'):
+#     print('Win')
+# else:
+#     print('Lose')
 
 
 # randomly decides which player goes first
 def choose_first():
-    pass
+    return random.randint(1, 2)
 
+
+# print(choose_first())
 
 # returns a boolean indicating whether a space on the board is freely available
 def space_check(board):
@@ -79,8 +83,18 @@ def space_check(board):
 
 
 # checks if the board is full and returns a boolean value. True if full,False otherwise
-def full_board_check(board):
-    pass
+def full_board_check(brd):
+    for r1, r2, r3 in brd:
+        if ' ' in r1 or ' ' in r2 or ' ' in r3:
+            return False
+        else:
+            return True
+
+
+if full_board_check(board):
+    print('Board is full')
+else:
+    print('Empty spaces are available')
 
 
 # asks for a player's next position and then uses the space_check function to check is it's a free position. If it
