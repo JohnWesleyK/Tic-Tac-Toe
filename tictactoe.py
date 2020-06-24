@@ -110,7 +110,19 @@ def player_choice(board):
 
 # returns a boolean True if they do want to play again
 def replay():
-    pass
+    ans = input('Would you like to play again? Type yes or no ')
+    print(ans)
+    if ans == 'yes':
+        return True
+    elif ans == 'no':
+        return False
+    else:
+        replay()
+
+# if replay():
+#     print('yes')
+# else:
+#     print('no')
 
 # print('Welcome to Tic Tac Toe!')
 
