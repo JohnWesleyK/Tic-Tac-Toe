@@ -1,11 +1,5 @@
 import random
 
-row1 = [' ', ' ', ' ']
-row2 = [' ', ' ', ' ']
-row3 = [' ', ' ', ' ']
-testboard = [row1, row2, row3]
-# display(testboard)
-
 
 # displays borad
 def display(brd):
@@ -33,7 +27,6 @@ def place_marker(brd, mark, x, y):
 
 # board = place_marker(board, X, Y)
 # display(board)
-
 
 # takes in a board and a mark (X or O) and then checks to see if the mark has won
 def win_check(brd, mark):
@@ -81,7 +74,6 @@ def choose_first():
 
 # print(choose_first())
 
-
 # checks if the board is full and returns a boolean value. True if full,False otherwise
 def full_board_check(brd):
     for r1, r2, r3 in brd:
@@ -104,7 +96,6 @@ def space_check(brd, x, y):
         else:
             return False
 
-
 # print(space_check(board,1,2))
 
 # asks for a player's next position and then uses the space_check function to check is it's a free position. If it
@@ -114,12 +105,13 @@ def player_choice(board, mark):
     xpos = int(xpos)
     ypos = int(ypos)
     if space_check(board, xpos, ypos):
-        board=place_marker(board, mark, xpos, ypos)
+        board = place_marker(board, mark, xpos, ypos)
     else:
         print('space already filled')
 
-player_choice(testboard,'X')
-display(testboard)
+
+# player_choice(testboard,'X')
+# display(testboard)
 # returns a boolean True if they do want to play again
 def replay():
     ans = input('Would you like to play again? Type yes or no ')
@@ -131,26 +123,60 @@ def replay():
     else:
         replay()
 
+
 # if replay():
 #     print('yes')
 # else:
 #     print('no')
 
-# print('Welcome to Tic Tac Toe!')
-#
-# # while True:
-# # Set the game up here
-# # pass
-# finished = False
-# playerturn = choose_first()
-# if playerturn == 1:
-#     print('Player one goes first')
-#     player1mark = input('Which marker would you like to have? Type X or O')
-# else:
-#     print('Player two goes first')
-#     player2mark = input('Which marker would you like to have? Type X or O')
-# while not finished:
-# initializing board
+row1 = [' ', ' ', ' ']
+row2 = [' ', ' ', ' ']
+row3 = [' ', ' ', ' ']
+testboard = [row1, row2, row3]
+display(testboard)
+
+print('Welcome to Tic Tac Toe!')
+
+# while True:
+# Set the game up here
+# pass
+finished = False
+playerturn = choose_first()
+if playerturn == 1:
+    print('Player one goes first')
+    player1mark = input('Which marker would you like to have? Type X or O')
+    print('Player two goes next')
+    player2mark = input('Which marker would you like to have? Type X or O')
+    player1chance = True
+    player2chance = False
+else:
+    print('Player two goes first')
+    player2mark = input('Which marker would you like to have? Type X or O')
+    print('Player one goes next')
+    player1mark = input('Which marker would you like to have? Type X or O')
+    player1chance = False
+    player2chance = True
+while not finished:
+    while not win_check(testboard,player1mark) or win_check(testboard,player2mark):
+        if player1chance:
+            print('Player 1s turn')
+            player_choice(testboard,player1mark)
+            player1chance = False
+            player2chance = True
+            display(testboard)
+        elif player2chance:
+            print('Player 2s turn')
+            player_choice(testboard,player2mark)
+            player1chance = True
+            player2chance = False
+            display(testboard)
+    if win_check(testboard,player1mark) or win_check(testboard,player2mark):
+        if replay():
+            finished = True
+        else:
+            finished = False
+
+#initializing board
 
 
 # while game_on:
