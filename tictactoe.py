@@ -1,17 +1,20 @@
 import random
 
-row1 = ['O', '-', ' ']
-row2 = ['O', '-', 'X']
-row3 = ['O', '-', 'X']
-board = [row1, row2, row3]
+row1 = [' ', ' ', ' ']
+row2 = [' ', ' ', ' ']
+row3 = [' ', ' ', ' ']
+testboard = [row1, row2, row3]
+# display(testboard)
 
 
+# displays borad
 def display(brd):
     print(brd[0])
     print(brd[1])
     print(brd[2])
 
 
+# takes in a player input and assign their markers as 'X' or 'O'
 def player_input():
     positionX = int(input('enter the x value'))
     positionY = int(input('enter the Y value'))
@@ -21,9 +24,10 @@ def player_input():
 # X, Y = player_input()
 # print(X, Y)
 
-
-def place_marker(brd, x, y):
-    brd[x][y] = 'X'
+# takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9)
+# and assigns it to the board
+def place_marker(brd, mark, x, y):
+    brd[x][y] = mark
     return brd
 
 
@@ -93,21 +97,29 @@ def full_board_check(brd):
 #     print('Empty spaces are available')
 
 # returns a boolean indicating whether a space on the board is freely available
-def space_check(brd,x,y):
+def space_check(brd, x, y):
     if not full_board_check(brd):
         if brd[x][y] == ' ':
             return True
         else:
             return False
 
+
 # print(space_check(board,1,2))
 
 # asks for a player's next position and then uses the space_check function to check is it's a free position. If it
 # is, then return the position for later use.
-def player_choice(board):
-    pass
+def player_choice(board, mark):
+    xpos, ypos = player_input()
+    xpos = int(xpos)
+    ypos = int(ypos)
+    if space_check(board, xpos, ypos):
+        board=place_marker(board, mark, xpos, ypos)
+    else:
+        print('space already filled')
 
-
+player_choice(testboard,'X')
+display(testboard)
 # returns a boolean True if they do want to play again
 def replay():
     ans = input('Would you like to play again? Type yes or no ')
@@ -125,10 +137,21 @@ def replay():
 #     print('no')
 
 # print('Welcome to Tic Tac Toe!')
+#
+# # while True:
+# # Set the game up here
+# # pass
+# finished = False
+# playerturn = choose_first()
+# if playerturn == 1:
+#     print('Player one goes first')
+#     player1mark = input('Which marker would you like to have? Type X or O')
+# else:
+#     print('Player two goes first')
+#     player2mark = input('Which marker would you like to have? Type X or O')
+# while not finished:
+# initializing board
 
-# while True:
-# Set the game up here
-# pass
 
 # while game_on:
 # Player 1 Turn
