@@ -157,6 +157,7 @@ else:
     player1chance = False
     player2chance = True
 while not finished:
+    display(testboard)
     while not win_check(testboard,player1mark) or win_check(testboard,player2mark):
         if player1chance:
             print('Player 1s turn')
@@ -171,21 +172,13 @@ while not finished:
             player2chance = False
             display(testboard)
     if win_check(testboard,player1mark) or win_check(testboard,player2mark):
+        row1 = [' ', ' ', ' ']
+        row2 = [' ', ' ', ' ']
+        row3 = [' ', ' ', ' ']
+        testboard = [row1, row2, row3]
         if replay():
-            finished = True
-        else:
             finished = False
-
-#initializing board
-
-
-# while game_on:
-# Player 1 Turn
+        else:
+            finished = True
 
 
-# Player2's turn.
-
-# pass
-
-# if not replay():
-# break
