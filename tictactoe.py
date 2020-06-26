@@ -3,9 +3,10 @@ import random
 
 # displays borad
 def display(brd):
-    print(brd[0])
-    print(brd[1])
-    print(brd[2])
+    print('T',['0', '1', '2'])
+    print(0,brd[0])
+    print(1,brd[1])
+    print(2,brd[2])
 
 
 # takes in a player input and assign their markers as 'X' or 'O'
@@ -101,7 +102,7 @@ def space_check(brd, x, y):
 # asks for a player's next position and then uses the space_check function to check is it's a free position. If it
 # is, then return the position for later use.
 def player_choice(board, mark):
-    xpos, ypos = player_input()
+    ypos, xpos = player_input()
     xpos = int(xpos)
     ypos = int(ypos)
     if space_check(board, xpos, ypos):
