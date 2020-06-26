@@ -1,0 +1,15 @@
+
+=python:S125@"Remove this commented out code.( ¬Íß8Ñí²¼®.
+‘python:S1192“"qDefine a constant instead of duplicating this literal 'Which marker would you like to have? Type X or O' 4 times.(ÓÍÙ8ÿä°ä®.
+wpython:S117"ZRename this local variable "positionX" to match the regular expression ^[_a-z][a-z0-9_]*$.(©±Y8ŠÏŠ»®.
+Bpython:S125"Remove this commented out code.(™„ûşüÿÿÿÿ8ŠÏŠ»®.
+wpython:S117!"YRename this local variable "verCheck" to match the regular expression ^[_a-z][a-z0-9_]*$.(å³Ê°8ŠÏŠ»®.
+xpython:S117"ZRename this local variable "positionY" to match the regular expression ^[_a-z][a-z0-9_]*$.(ëÓ¸†8ŠÏŠ»®.
+spython:S117#"URename this local variable "secD" to match the regular expression ^[_a-z][a-z0-9_]*$.(ˆÿÈÿ8ŠÏŠ»®.
+xpython:S117""URename this local variable "priD" to match the regular expression ^[_a-z][a-z0-9_]*$.(‘­ûØûÿÿÿÿ8ŠÏŠ»®.
+~python:S117$"`Rename this local variable "priDiagonalList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªì•é8‚µ¤»®.
+ƒpython:S117%"`Rename this local variable "secDiagonalList" to match the regular expression ^[_a-z][a-z0-9_]*$.(±Ğîøüÿÿÿÿ8÷Ùª»®.
+=python:S125"Remove this commented out code.(ùÎ‡È8ŠÏŠ»®.
+xpython:S3776 "TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(Ûê±àøÿÿÿÿ8‰¸—¼®.
+Bpython:S125"Remove this commented out code.(à€öøÿÿÿÿ8áğé½®.
+=python:S125V"Remove this commented out code.(›ŞÊ8ÚÆˆ½®.

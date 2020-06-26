@@ -11,8 +11,8 @@ def display(brd):
 
 # takes in a player input and assign their markers as 'X' or 'O'
 def player_input():
-    positionX = int(input('enter the x value'))
-    positionY = int(input('enter the Y value'))
+    positionX = int(input('enter the x value '))
+    positionY = int(input('enter the Y value '))
     return positionX, positionY
 
 
@@ -108,7 +108,7 @@ def player_choice(board, mark):
     if space_check(board, xpos, ypos):
         board = place_marker(board, mark, xpos, ypos)
     else:
-        print('space already filled')
+        print('space already filled ')
 
 
 # player_choice(testboard,'X')
@@ -144,30 +144,30 @@ print('Welcome to Tic Tac Toe!')
 finished = False
 playerturn = choose_first()
 if playerturn == 1:
-    print('Player one goes first')
-    player1mark = input('Which marker would you like to have? Type X or O')
-    print('Player two goes next')
-    player2mark = input('Which marker would you like to have? Type X or O')
+    print('Player one goes first ')
+    player1mark = input('Which marker would you like to have? Type X or O ')
+    print('Player two goes next ')
+    player2mark = input('Which marker would you like to have? Type X or O ')
     player1chance = True
     player2chance = False
 else:
     print('Player two goes first')
-    player2mark = input('Which marker would you like to have? Type X or O')
+    player2mark = input('Which marker would you like to have? Type X or O ')
     print('Player one goes next')
-    player1mark = input('Which marker would you like to have? Type X or O')
+    player1mark = input('Which marker would you like to have? Type X or O ')
     player1chance = False
     player2chance = True
 while not finished:
     display(testboard)
     while not win_check(testboard,player1mark) or win_check(testboard,player2mark):
         if player1chance:
-            print('Player 1s turn')
+            print('Player 1s turn ')
             player_choice(testboard,player1mark)
             player1chance = False
             player2chance = True
             display(testboard)
         elif player2chance:
-            print('Player 2s turn')
+            print('Player 2s turn ')
             player_choice(testboard,player2mark)
             player1chance = True
             player2chance = False
