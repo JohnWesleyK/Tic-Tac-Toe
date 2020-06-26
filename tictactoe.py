@@ -3,10 +3,10 @@ import random
 
 # displays borad
 def display(brd):
-    print('T',['0', '1', '2'])
-    print(0,brd[0])
-    print(1,brd[1])
-    print(2,brd[2])
+    print('T', ['0', '1', '2'])
+    print(0, brd[0])
+    print(1, brd[1])
+    print(2, brd[2])
 
 
 # takes in a player input and assign their markers as 'X' or 'O'
@@ -67,7 +67,6 @@ def win_check(brd, mark):
 # else:
 #     print('Lose')
 
-
 # randomly decides which player goes first
 def choose_first():
     return random.randint(1, 2)
@@ -97,6 +96,7 @@ def space_check(brd, x, y):
         else:
             return False
 
+
 # print(space_check(board,1,2))
 
 # asks for a player's next position and then uses the space_check function to check is it's a free position. If it
@@ -113,9 +113,10 @@ def player_choice(board, mark):
 
 # player_choice(testboard,'X')
 # display(testboard)
+
 # returns a boolean True if they do want to play again
 def replay():
-    replayStatement='Would you like to play again? Type yes or no '
+    replayStatement = 'Would you like to play again? Type yes or no '
     ans = input(replayStatement)
     print(ans)
     if ans == 'yes':
@@ -144,7 +145,8 @@ print('Welcome to Tic Tac Toe!')
 # pass
 finished = False
 playerturn = choose_first()
-markerInputStatement='Which marker would you like to have? Type X or O '
+markerInputStatement = 'Which marker would you like to have? Type X or O '
+
 if playerturn == 1:
     print('Player one goes first ')
     player1mark = input(markerInputStatement)
@@ -161,20 +163,20 @@ else:
     player2chance = True
 while not finished:
     display(testboard)
-    while not win_check(testboard,player1mark) or win_check(testboard,player2mark):
+    while not win_check(testboard, player1mark) or win_check(testboard, player2mark):
         if player1chance:
             print('Player 1s turn ')
-            player_choice(testboard,player1mark)
+            player_choice(testboard, player1mark)
             player1chance = False
             player2chance = True
             display(testboard)
         elif player2chance:
             print('Player 2s turn ')
-            player_choice(testboard,player2mark)
+            player_choice(testboard, player2mark)
             player1chance = True
             player2chance = False
             display(testboard)
-    if win_check(testboard,player1mark) or win_check(testboard,player2mark):
+    if win_check(testboard, player1mark) or win_check(testboard, player2mark):
         row1 = [' ', ' ', ' ']
         row2 = [' ', ' ', ' ']
         row3 = [' ', ' ', ' ']
@@ -183,5 +185,3 @@ while not finished:
             finished = False
         else:
             finished = True
-
-
