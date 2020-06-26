@@ -115,7 +115,8 @@ def player_choice(board, mark):
 # display(testboard)
 # returns a boolean True if they do want to play again
 def replay():
-    ans = input('Would you like to play again? Type yes or no ')
+    replayStatement='Would you like to play again? Type yes or no '
+    ans = input(replayStatement)
     print(ans)
     if ans == 'yes':
         return True
@@ -143,18 +144,19 @@ print('Welcome to Tic Tac Toe!')
 # pass
 finished = False
 playerturn = choose_first()
+markerInputStatement='Which marker would you like to have? Type X or O '
 if playerturn == 1:
     print('Player one goes first ')
-    player1mark = input('Which marker would you like to have? Type X or O ')
+    player1mark = input(markerInputStatement)
     print('Player two goes next ')
-    player2mark = input('Which marker would you like to have? Type X or O ')
+    player2mark = input(markerInputStatement)
     player1chance = True
     player2chance = False
 else:
     print('Player two goes first')
-    player2mark = input('Which marker would you like to have? Type X or O ')
+    player2mark = input(markerInputStatement)
     print('Player one goes next')
-    player1mark = input('Which marker would you like to have? Type X or O ')
+    player1mark = input(markerInputStatement)
     player1chance = False
     player2chance = True
 while not finished:
