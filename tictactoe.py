@@ -1,6 +1,5 @@
 import random
 
-
 # displays borad
 def display(brd):
     print('T', ['0', '1', '2'])
@@ -8,25 +7,16 @@ def display(brd):
     print(1, brd[1])
     print(2, brd[2])
 
-
 # takes in a player input and assign their markers as 'X' or 'O'
 def player_input():
     positionX = int(input('enter the x value '))
     positionY = int(input('enter the y value '))
     return positionX, positionY
 
-
-# X, Y = player_input()
-# print(X, Y)
-
 # takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9)
 # and assigns it to the board
 def place_marker(brd, mark, x, y):
     brd[x][y] = mark
-
-
-# board = place_marker(board, X, Y)
-# display(board)
 
 # takes in a board and a mark (X or O) and then checks to see if the mark has won
 def win_check(brd, mark):
@@ -60,18 +50,9 @@ def win_check(brd, mark):
     else:
         return False
 
-
-# if win_check(board, 'X'):
-#     print('Win')
-# else:
-#     print('Lose')
-
 # randomly decides which player goes first
 def choose_first():
     return random.randint(1, 2)
-
-
-# print(choose_first())
 
 # checks if the board is full and returns a boolean value. True if full,False otherwise
 def full_board_check(brd):
@@ -81,19 +62,10 @@ def full_board_check(brd):
         else:
             return True
 
-
-# if full_board_check(board):
-#     print('Board is full')
-# else:
-#     print('Empty spaces are available')
-
 # returns a boolean indicating whether a space on the board is freely available
 def space_check(brd, x, y):
     if not full_board_check(brd):
         return brd[x][y] == ' '
-
-
-# print(space_check(board,1,2))
 
 # asks for a player's next position and then uses the space_check function to check is it's a free position. If it
 # is, then return the position for later use.
@@ -105,10 +77,6 @@ def player_choice(board, mark):
         place_marker(board, mark, xpos, ypos)
     else:
         print('space already filled ')
-
-
-# player_choice(testboard,'X')
-# display(testboard)
 
 # returns a boolean True if they do want to play again
 def replay():
@@ -122,12 +90,6 @@ def replay():
     else:
         replay()
 
-
-# if replay():
-#     print('yes')
-# else:
-#     print('no')
-
 row1 = [' ', ' ', ' ']
 row2 = [' ', ' ', ' ']
 row3 = [' ', ' ', ' ']
@@ -136,9 +98,7 @@ display(testboard)
 
 print('Welcome to Tic Tac Toe!')
 
-# while True:
 # Set the game up here
-# pass
 finished = False
 playerturn = choose_first()
 markerInputStatement = 'Which marker would you like to have? Type X or O '
