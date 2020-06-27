@@ -12,7 +12,7 @@ def display(brd):
 # takes in a player input and assign their markers as 'X' or 'O'
 def player_input():
     positionX = int(input('enter the x value '))
-    positionY = int(input('enter the Y value '))
+    positionY = int(input('enter the y value '))
     return positionX, positionY
 
 
@@ -23,7 +23,6 @@ def player_input():
 # and assigns it to the board
 def place_marker(brd, mark, x, y):
     brd[x][y] = mark
-    return brd
 
 
 # board = place_marker(board, X, Y)
@@ -106,7 +105,7 @@ def player_choice(board, mark):
     xpos = int(xpos)
     ypos = int(ypos)
     if space_check(board, xpos, ypos):
-        board = place_marker(board, mark, xpos, ypos)
+        place_marker(board, mark, xpos, ypos)
     else:
         print('space already filled ')
 
