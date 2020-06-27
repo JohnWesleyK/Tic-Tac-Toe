@@ -90,10 +90,7 @@ def full_board_check(brd):
 # returns a boolean indicating whether a space on the board is freely available
 def space_check(brd, x, y):
     if not full_board_check(brd):
-        if brd[x][y] == ' ':
-            return True
-        else:
-            return False
+        return brd[x][y] == ' '
 
 
 # print(space_check(board,1,2))
