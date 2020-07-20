@@ -1,4 +1,5 @@
 import random
+
 # displays borad
 def display(brd):
     print('T', ['0', '1', '2'])
